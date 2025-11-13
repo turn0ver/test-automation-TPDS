@@ -11,15 +11,50 @@ Playwright — testing framework
 
 This project also documents architectural findings, risks, and improvements for maintainability and testability.
 
-## ✅ Testing Architecture
+## 📁 Project Structure
 
-- Page Objects for selectors.
-
-- Actions for small reusable interactions.
-
-- Flows for end-to-end business processes (login, register, checkout).
-
-- Factories to generate dynamic test data (users, products, orders).
+```text
+.
+├── .github/                        # GitHub workflows (CI/CD)
+├── node_modules/                   # Project dependencies
+│
+├── playwright-report/              # Auto-generated HTML reports
+├── postman_collection/             # Postman API collections
+│
+├── src/
+│   ├── flows/                      # Business flows (multi-page actions)
+│   │   └── auth.flows.ts           # Login, register, recovery, sessions
+│   │
+│   ├── pages/                      # Page Object Models (POM)
+│   │   ├── base.page.ts            # Base page (common helpers)
+│   │   ├── login.page.ts           # Login page selectors & methods
+│   │   └── register.page.ts        # Register page selectors & methods
+│   │
+│   └── utils/
+│       └── test-user.factory.ts    # User factory for test data generation
+│
+├── test-results/                   # Playwright traces, screenshots, logs
+│
+├── tests/
+│   ├── e2e/                        # Full end-to-end journeys
+│   │   ├── auth.e2e.spec.ts
+│   │   └── register.e2e.spec.ts
+│   │
+│   ├── stress/                     # Load & concurrency scenarios
+│   │   └── login.stress.spec.ts
+│   │
+│   └── ui/                         # Component/UI validation tests
+│       └── login.ui.spec.ts
+│
+├── .env                            # Environment variables (local setup)
+├── .gitignore
+├── fixtures.ts                     # Global test fixtures (browser, context)
+│
+├── package.json                    # Scripts + dependencies
+├── package-lock.json               # Dependency lock
+├── playwright.config.ts            # Test runner config & browser settings
+├── README.md                       # Documentation
+└── tsconfig.json                   # TypeScript compiler config
 
 
 ## 📦 Getting Started
