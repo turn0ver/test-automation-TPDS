@@ -1,0 +1,56 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - region "Notifications (F8)":
+      - list
+    - generic [ref=e4]:
+      - link "Login" [ref=e5] [cursor=pointer]:
+        - /url: /login
+      - figure [ref=e7]:
+        - img "bg-auth" [ref=e8]
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - heading "Create an account" [level=1] [ref=e12]
+          - paragraph [ref=e13]: Enter information below to create your account
+        - alert [ref=e14]:
+          - heading "Please confirm your email" [level=5] [ref=e15]
+          - generic [ref=e16]:
+            - text: We have sent you a link to your email. Click the link to confirm your email.
+            - text: (In development email are sent to the mailtrap)
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - text: Name
+            - textbox "Name" [ref=e19]:
+              - /placeholder: eg. John Doe
+              - text: rama
+          - generic [ref=e20]:
+            - text: Email
+            - textbox "Email" [ref=e21]:
+              - /placeholder: johndoe@example.com
+          - generic [ref=e22]:
+            - text: Password
+            - textbox "Password" [ref=e23]:
+              - /placeholder: Enter min. 8 character
+              - text: password
+          - generic [ref=e24]:
+            - text: Confirm Password
+            - textbox "Confirm Password" [ref=e25]:
+              - /placeholder: Re-enter your password
+              - text: password
+          - button "Register" [ref=e26] [cursor=pointer]
+        - generic [ref=e31]: Or continue with
+        - button "Google" [ref=e32] [cursor=pointer]:
+          - img [ref=e33]
+          - generic [ref=e39]: Google
+        - paragraph [ref=e40]:
+          - text: By create an account, you agree to our
+          - link "Terms of Service" [ref=e41] [cursor=pointer]:
+            - /url: /terms
+          - text: and
+          - link "Privacy Policy" [ref=e42] [cursor=pointer]:
+            - /url: /privacy
+          - text: .
+  - alert [ref=e43]
+```

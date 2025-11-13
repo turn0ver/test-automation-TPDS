@@ -1,0 +1,51 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - region "Notifications (F8)":
+      - list [ref=e4]:
+        - status [ref=e5]:
+          - generic [ref=e6]:
+            - generic [ref=e7]: Error
+            - generic [ref=e8]: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+          - button [ref=e9] [cursor=pointer]:
+            - img [ref=e10]
+    - generic [ref=e15]:
+      - link "Register" [ref=e16] [cursor=pointer]:
+        - /url: /register
+      - figure [ref=e18]:
+        - img "bg-auth" [ref=e19]
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - heading "Login to your account" [level=1] [ref=e23]
+          - paragraph [ref=e24]: Enter your credential below to enter your account
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - text: Email
+            - textbox "Email" [ref=e27]:
+              - /placeholder: johndoe@example.com
+              - text: user_1763073091582_ec7lox@e2e.test
+          - generic [ref=e28]:
+            - text: Password
+            - textbox "Password" [ref=e29]:
+              - /placeholder: Enter your password
+              - text: Pass_ec7lox_1582!A
+          - link "Forgot Password? Click Here" [ref=e31] [cursor=pointer]:
+            - /url: /forgot-password
+          - button "Login" [ref=e32] [cursor=pointer]
+        - generic [ref=e37]: Or continue with
+        - button "Google" [ref=e38] [cursor=pointer]:
+          - img [ref=e39]
+          - generic [ref=e45]: Google
+        - paragraph [ref=e46]:
+          - text: By create an account, you agree to our
+          - link "Terms of Service" [ref=e47] [cursor=pointer]:
+            - /url: /terms
+          - text: and
+          - link "Privacy Policy" [ref=e48] [cursor=pointer]:
+            - /url: /privacy
+          - text: .
+  - alert [ref=e49]
+  - status [ref=e50]: Notification ErrorUnexpected token '<', "<!DOCTYPE "... is not valid JSON
+```

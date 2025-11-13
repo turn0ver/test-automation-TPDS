@@ -1,0 +1,58 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - region "Notifications (F8)":
+      - list [ref=e4]:
+        - status [ref=e5]:
+          - generic [ref=e6]:
+            - generic [ref=e7]: Error
+            - generic [ref=e8]: password must be at least 6 characters
+          - button [ref=e9] [cursor=pointer]:
+            - img [ref=e10]
+    - generic [ref=e15]:
+      - link "Login" [ref=e16] [cursor=pointer]:
+        - /url: /login
+      - figure [ref=e18]:
+        - img "bg-auth" [ref=e19]
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - heading "Create an account" [level=1] [ref=e23]
+          - paragraph [ref=e24]: Enter information below to create your account
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - text: Name
+            - textbox "Name" [ref=e27]:
+              - /placeholder: eg. John Doe
+              - text: User 1763073091583
+          - generic [ref=e28]:
+            - text: Email
+            - textbox "Email" [ref=e29]:
+              - /placeholder: johndoe@example.com
+              - text: user_1763073091583_68bssy@e2e.test
+          - generic [ref=e30]:
+            - text: Password
+            - textbox "Password" [ref=e31]:
+              - /placeholder: Enter min. 8 character
+              - text: "123"
+          - generic [ref=e32]:
+            - text: Confirm Password
+            - textbox "Confirm Password" [ref=e33]:
+              - /placeholder: Re-enter your password
+              - text: "123"
+          - button "Register" [ref=e34] [cursor=pointer]
+        - generic [ref=e39]: Or continue with
+        - button "Google" [ref=e40] [cursor=pointer]:
+          - img [ref=e41]
+          - generic [ref=e47]: Google
+        - paragraph [ref=e48]:
+          - text: By create an account, you agree to our
+          - link "Terms of Service" [ref=e49] [cursor=pointer]:
+            - /url: /terms
+          - text: and
+          - link "Privacy Policy" [ref=e50] [cursor=pointer]:
+            - /url: /privacy
+          - text: .
+  - alert [ref=e51]
+```

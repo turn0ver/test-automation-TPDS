@@ -1,0 +1,44 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - region "Notifications (F8)":
+      - list
+    - generic [ref=e4]:
+      - link "Register" [ref=e5] [cursor=pointer]:
+        - /url: /register
+      - figure [ref=e7]:
+        - img "bg-auth" [ref=e8]
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - heading "Login to your account" [level=1] [ref=e12]
+          - paragraph [ref=e13]: Enter your credential below to enter your account
+        - generic [ref=e14]:
+          - generic [ref=e15]:
+            - text: Email
+            - textbox "Email" [ref=e16]:
+              - /placeholder: johndoe@example.com
+              - text: user1+e2e@demo.test
+          - generic [ref=e17]:
+            - text: Password
+            - textbox "Password" [ref=e18]:
+              - /placeholder: Enter your password
+              - text: Pass123!
+          - link "Forgot Password? Click Here" [ref=e20] [cursor=pointer]:
+            - /url: /forgot-password
+          - button "Login" [ref=e21] [cursor=pointer]
+        - generic [ref=e26]: Or continue with
+        - button "Google" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+          - generic [ref=e34]: Google
+        - paragraph [ref=e35]:
+          - text: By create an account, you agree to our
+          - link "Terms of Service" [ref=e36] [cursor=pointer]:
+            - /url: /terms
+          - text: and
+          - link "Privacy Policy" [ref=e37] [cursor=pointer]:
+            - /url: /privacy
+          - text: .
+  - alert [ref=e38]
+```
