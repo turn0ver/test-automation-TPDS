@@ -55,7 +55,7 @@ This project also documents architectural findings, risks, and improvements for 
 ├── playwright.config.ts            # Test runner config & browser settings
 ├── README.md                       # Documentation
 └── tsconfig.json                   # TypeScript compiler config
-
+```
 
 ## 📦 Getting Started
 
