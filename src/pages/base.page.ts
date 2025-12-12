@@ -12,7 +12,8 @@ export abstract class BasePage {
   }
 
   async goto(path: string) {
-    await this.page.goto(path, { waitUntil: 'domcontentloaded' });
+    const baseUrl = process.env.BASE_URL ?? 'http://localhost:3000';
+    await this.page.goto(`${baseUrl}${path}`);
   }
 
   async expectUrlContains(fragment: string | RegExp) {

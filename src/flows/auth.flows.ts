@@ -1,33 +1,19 @@
-import { Page } from '@playwright/test';
-import { LoginPage } from '../pages/login.page';
-import { RegisterPage } from '../pages/register.page';
+import type { Page } from "@playwright/test";
+import { LoginPage } from "../pages/login.page";
+import { RegisterPage } from "../pages/register.page";
 
 export class AuthFlows {
-  private loginPage: LoginPage;
-  private registerPage: RegisterPage;
-
-  constructor(private page: Page) {
-    this.loginPage = new LoginPage(page);
-    this.registerPage = new RegisterPage(page);
-  }
-
-  // High-level business action
-  async loginWithCredentials(email: string, password: string) {
-    await this.loginPage.open();
-    await this.loginPage.isLoaded();
-    await this.loginPage.fillEmail(email);
-    await this.loginPage.fillPassword(password);
-    await this.loginPage.submit();
-  }
+  constructor(private readonly page: Page) {}
 
   async registerNewUser(name: string, email: string, password: string) {
-    await this.registerPage.open();
+    const registerPage = new RegisterPage(this.page);
+    await registerPage.open();
+    await registerPage.register(name, email, password);
+  }
 
-    await this.registerPage.nameInput().fill(name);
-    await this.registerPage.emailInput().fill(email);
-    await this.registerPage.passwordInput().fill(password);
-    await this.registerPage.confirmPasswordInput().fill(password);
-
-    await this.registerPage.submitButton().click();
+  async loginWithCredentials(email: string, password: string) {
+    const loginPage = new LoginPage(this.page);
+    await loginPage.open(); // recomendo /login direto pra estabilidade
+    await loginPage.login(email, password);
   }
 }

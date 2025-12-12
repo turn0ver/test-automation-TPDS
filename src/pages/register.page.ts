@@ -59,4 +59,13 @@ export class RegisterPage extends BasePage {
     await expect(this.passwordInput()).toBeVisible();
     await expect(this.confirmPasswordInput()).toBeVisible();
   }
+
+  async register(name: string, email: string, password: string) {
+    await this.isLoaded();
+    await this.fillName(name);
+    await this.fillEmail(email);
+    await this.fillPassword(password);
+    await this.fillConfirmPassword(password);
+    await this.submit();
+  }
 }

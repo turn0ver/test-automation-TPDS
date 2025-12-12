@@ -1,7 +1,10 @@
-// tests/stress/login.stress.spec.ts
-import { test, expect } from '@playwright/test';
-import { testUsers } from '../../fixtures';
+import { test, expect, testUsers } from '../../fixtures';
 import { AuthFlows } from '../../src/flows/auth.flows';
+
+function hasAuthCookie(cookies: { name: string; value: string }[]) {
+  const authCookieRegex = /(jwt|token|session|next-auth)/i;
+  return cookies.some((c) => authCookieRegex.test(c.name) && c.value?.length > 0);
+}
 
 test.describe('Stress - concurrent logins', () => {
   test('multiple users can login concurrently via UI', async ({ browser }) => {
@@ -11,14 +14,21 @@ test.describe('Stress - concurrent logins', () => {
       testUsers.map(async (user) => {
         const context = await browser.newContext();
         const page = await context.newPage();
-        const authFlows = new AuthFlows(page);
 
-        await authFlows.loginWithCredentials(user.email, user.password);
+        try {
+          const authFlows = new AuthFlows(page);
 
-        await expect(page.getByText(/my account|logout|profile/i)).toBeVisible();
+          await authFlows.loginWithCredentials(user.email, user.password);
 
-        await context.close();
-      }),
+          const cookies = await context.cookies(baseUrl);
+          expect(
+            hasAuthCookie(cookies),
+            `No auth cookie found. Cookies: ${cookies.map((c) => c.name).join(', ')}`
+          ).toBeTruthy();
+        } finally {
+          await context.close();
+        }
+      })
     );
   });
 });

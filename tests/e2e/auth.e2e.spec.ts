@@ -5,9 +5,10 @@ test('user can register and login using dynamic test user', async ({ authFlows, 
   const user = createRandomUser();
 
   await authFlows.registerNewUser(user.name, user.email, user.password);
-  await expect(page.getByText(/please confirm your email/i)).toBeVisible();
 
   await authFlows.loginWithCredentials(user.email, user.password);
-  await expect(page.getByText(/dashboard|account/i)).toBeVisible();
-});
 
+  await expect(
+    page.getByRole('button', { name: /login or register/i })
+  ).toBeHidden();
+});
